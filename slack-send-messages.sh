@@ -7,7 +7,7 @@ if [ $# -eq 0 ];then
     exit 1
 fi
 
-. "$HOME"/.slack/slack.conf || extic 1
+. "$HOME"/.slack/slack.conf || exit 1
 
 msg="$1"
 
