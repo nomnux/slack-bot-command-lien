@@ -12,8 +12,9 @@ fi
 msg="$1"
 
 json="{
-  \"text\" : \"@${username_to} "$msg"\",
-  \"username\" : \"$username_from\",
+  \"channel\" : \"#${channel}\",
+  \"text\" : \"@${username_to} ${msg}\",
+  \"username\" : \"${username_from}\",
   \"link_names\": 1
 }"
 
