@@ -19,6 +19,8 @@ json="{
 }"
 
 curl \
+  -sS \
+  -o /dev/null \
   -X POST \
   -H "Content-type: application/json" \
   --data "$json" \
