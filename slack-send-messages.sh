@@ -2,14 +2,48 @@
 
 set -e
 
-if [ $# -eq 0 ];then
-    echo "Usage: ${0##*/} MESSAEGE"
+conf_file="$HOME/.slack/slack.conf"
+
+print_usage() {
+    cat << __USAGE 1>&2
+Usage
+
+  ${0##*/} [OPTION...] MESSAEGE"
+
+Options
+
+    -f CONFIGURATION_FILE
+        specify configuration file
+
+    -v
+        verbose mode
+
+__USAGE
+
     exit 1
+}
+
+## ------------------------------------------------------------------------------
+
+if [ $# -eq 0 ]; then
+    print_usage
 fi
 
-. "$HOME"/.slack/slack.conf || exit 1
+while getopts f: opt; do
+    case "$opt" in
+        f) f_flag=enabled
+           conf_file="$OPTARG"
+           ;;
+        *) print_usage
+           ;;
+    esac
+done
+shift `expr $OPTIND - 1`
 
 msg="$1"
+
+# read configuration file
+. "$conf_file"
 
 json="{
   \"channel\" : \"#${channel}\",
