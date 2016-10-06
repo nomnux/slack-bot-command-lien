@@ -14,5 +14,5 @@ Linux/Unix command line Slack bot using Slack Incoming Webhooks.
 
 ## Usage
 ```console
-Usage: slack-send-messages.sh MESSAEGE
+Usage: slack-send-messages.sh [OPTION...] MESSAEGE
 ```
