@@ -8,7 +8,7 @@ print_usage() {
     cat << __USAGE 1>&2
 Usage
 
-  ${0##*/} [OPTION...] MESSAEGE"
+  ${0##*/} [OPTION...] MESSAEGE
 
 Options
 
