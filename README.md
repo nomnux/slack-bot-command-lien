@@ -11,7 +11,7 @@ Linux/Unix command line Slack bot using Slack Incoming Webhooks.
 
 ## Installation
 
-1. cp slack.conf.sample ~/.slack/slack.conf
+1. mkdir ~/.slack && cp slack.conf.sample ~/.slack/slack.conf
 2. vim ~/.slack/slack.conf
 3. chmod 600 ~/.slack/slack.conf
 
