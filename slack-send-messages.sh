@@ -15,9 +15,6 @@ Options
     -f CONFIGURATION_FILE
         specify configuration file
 
-    -v
-        verbose mode
-
 __USAGE
 
     exit 1
