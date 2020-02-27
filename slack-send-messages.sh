@@ -52,7 +52,8 @@ json=$(cat << EOF
   "username" : "${username_from}",
   "link_names": 1
 }
-EOF)
+EOF
+)
 
 curl \
   -sS \
