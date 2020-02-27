@@ -13,7 +13,7 @@ Usage
 Options
 
     -f CONFIGURATION_FILE
-        specify configuration file
+        specify configuration file.
 
 __USAGE
 
