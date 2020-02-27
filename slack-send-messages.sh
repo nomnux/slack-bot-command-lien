@@ -8,7 +8,9 @@ print_usage() {
     cat << __USAGE 1>&2
 Usage
 
-  ${0##*/} [OPTION...] MESSAEGE
+  ${0##*/} [OPTION...] [MESSAEGE]
+
+  With no message, read message from standard input.
 
 Options
 
@@ -22,32 +24,35 @@ __USAGE
 
 ## ------------------------------------------------------------------------------
 
-if [ $# -eq 0 ]; then
-    print_usage
-fi
 
-while getopts f: opt; do
+while getopts f:h opt; do
     case "$opt" in
         f) f_flag=enabled
            conf_file="$OPTARG"
            ;;
-        *) print_usage
+        h|*) print_usage
            ;;
     esac
 done
 shift `expr $OPTIND - 1`
 
-msg="$1"
+if [ $# -eq 0 ]; then
+    msg=$(cat)
+else
+    msg="$1"
+fi
 
 # read configuration file
 . "$conf_file"
 
-json="{
-  \"channel\" : \"#${channel}\",
-  \"text\" : \"@${username_to} ${msg}\",
-  \"username\" : \"${username_from}\",
-  \"link_names\": 1
-}"
+json=$(cat << EOF
+{
+  "channel" : "#${channel}",
+  "text" : "@${username_to} ${msg}",
+  "username" : "${username_from}",
+  "link_names": 1
+}
+EOF)
 
 curl \
   -sS \
