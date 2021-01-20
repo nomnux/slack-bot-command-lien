@@ -1,4 +1,4 @@
 webhook_url="https://hooks.slack.com/services/*************************"
 channel="channel-name"
-username_from="$(hostname)"
+username_from="$USER@$(hostname)"
 username_to="username"
