@@ -6,7 +6,7 @@ Linux/Unix command line Slack bot using Slack Incoming Webhooks.
 
 ## Requirement
 
-* Enable Incoming WebHooks in your Slack team.
+* Enable Incoming WebHooks in your Slack workspace.
     * https://api.slack.com/incoming-webhooks
 
 ## Installation
